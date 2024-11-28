@@ -20,7 +20,7 @@ paginate = 5
   fullWidthTheme = false
 
   # center theme with default width
-  centerTheme = false
+  centerTheme = true
 
   # if your resource directory contains an image called `cover.(jpg|png|webp)`,
   # then the file will be used as a cover automatically.
@@ -29,21 +29,16 @@ paginate = 5
 
   # set post to show the last updated
   # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-  showLastUpdated = false
-
-  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
-  # updatedDatePrefix = "Updated"
+  showLastUpdated = true
 
   # whether to show a page's estimated reading time
-  # readingTime = false # default
+  readingTime = true
 
   # whether to show a table of contents
-  # can be overridden in a page's front-matter
-  # Toc = false # default
+  Toc = true
 
   # set title for the table of contents
-  # can be overridden in a page's front-matter
-  # TocTitle = "Table of Contents" # default
+  TocTitle = "Contents"
 
 
 [params.twitter]
@@ -56,13 +51,13 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
+    title = "SpecWise Blog"
 
     [languages.en.params]
-      subtitle = "A simple, retro theme for Hugo"
-      owner = ""
-      keywords = ""
-      copyright = ""
+      subtitle = "Exploring Technology and Software Development"
+      owner = "Pradeep N S"
+      keywords = "technology, programming, software development, coding, tech blog"
+      copyright = "© 2024 Pradeep N S"
       menuMore = "Show more"
       readMore = "Read more"
       readOtherPosts = "Read other posts"
@@ -74,15 +69,17 @@ paginate = 5
       words = "words"
 
       [languages.en.params.logo]
-        logoText = "Terminal"
-        logoHomeLink = "/"
+        logoText = "SpecWise Blog"
+        logoHomeLink = "/specwiseblog"
 
       [languages.en.menu]
         [[languages.en.menu.main]]
           identifier = "about"
           name = "About"
           url = "/about"
+          weight = 1
         [[languages.en.menu.main]]
           identifier = "showcase"
           name = "Showcase"
           url = "/showcase"
+          weight = 2
