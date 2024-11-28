@@ -16,7 +16,7 @@ tags:
 - Actually…wait….find out where your Obsidian directories are. Right click your _posts_ folder and choose _show in system explorer_
 - You’ll need this directory in upcoming steps.
 
-!![Image Description](/images/Pasted%20image%2020241128121356.png)
+!![Image Description](/images/Pasted-image-20241128121356.png)
 ## Setting up Hugo
 
 ### Prerequisites
@@ -206,8 +206,6 @@ tags:
 
 
 ## Transfer Images from Obsidian to Hugo
-
-### Windows
 
 ```javascript
 const fs = require('fs');
