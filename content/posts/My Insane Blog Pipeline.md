@@ -17,7 +17,7 @@ tags:
 - You’ll need this directory in upcoming steps.
 
 !![Image Description](/images/Pasted%20image%2020241128121356.png)
-## Install Hugo
+## Setting up Hugo
 
 ### Prerequisites
 
@@ -151,37 +151,140 @@ paginate = 5
         logoHomeLink = "/"
 
       [languages.en.menu]
-        ![Image Description](/images/languages.en.menu.main%0A%20%20%20%20%20%20%20%20%20%20identifier%20%3D%20%22about%22%0A%20%20%20%20%20%20%20%20%20%20name%20%3D%20%22About%22%0A%20%20%20%20%20%20%20%20%20%20url%20%3D%20%22%2Fabout%22%0A%20%20%20%20%20%20%20%20languages.en.menu.main%0A%20%20%20%20%20%20%20%20%20%20identifier%20%3D%20%22showcase%22%0A%20%20%20%20%20%20%20%20%20%20name%20%3D%20%22Showcase%22%0A%20%20%20%20%20%20%20%20%20%20url%20%3D%20%22%2Fshowcase%22%0A%60%60%60%0A%0A%0A%23%23%23%20Test%20Hugo%0A%0A%60%60%60bash%0A%23%23%20Verify%20Hugo%20works%20with%20your%20theme%20by%20running%20this%20command%0A%0Ahugo%20server%20-t%20themename%0A%60%60%60%0A%0A%0A%23%20Walking%20Through%20the%20Steps%0A%0A_NOTE%3A%20There%20is%20a%20MEGA%20SCRIPT%20later%20in%20this%20blog%20that%20will%20do%20everything%20in%20one%20go._%0A%0A%23%23%20Syncing%20Obsidian%20to%20Hugo%0A%0A%23%23%23%20Windows%0A%0A%60%60%60powershell%0Arobocopy%20sourcepath%20destination%20path%20%2Fmir%0A%60%60%60%0A%0A%0A%23%23%23%20Mac%2FLinux%0A%0A%60%60%60bash%0Arsync%20-av%20--delete%20%22sourcepath%22%20%22destinationpath%22%0A%60%60%60%0A%0A%0A%23%23%20Add%20some%20frontmatter%0A%0A%60%60%60bash%0A---%0Atitle%3A%20blogtitle%0Adate%3A%202024-11-06%0Adraft%3A%20false%0Atags%3A%0A%20%20-%20tag1%0A%20%20-%20tag2%0A---%0A%60%60%60%0A%0A%0A%23%23%20Transfer%20Images%20from%20Obsidian%20to%20Hugo%0A%0A%23%23%23%20Windows%0A%0A%60%60%60javascript%0Aconst%20fs%20%3D%20require('fs')%3B%0Aconst%20path%20%3D%20require('path')%3B%0A%0A%2F%2F%20Paths%0Aconst%20postsDir%20%3D%20path.join(%22C%3A%22%2C%20%22Users%22%2C%20%22pradeep%22%2C%20%22Documents%22%2C%20%22specwiseblog%22%2C%20%22content%22%2C%20%22posts%22)%3B%0Aconst%20attachmentsDir%20%3D%20path.join(%22C%3A%22%2C%20%22Users%22%2C%20%22pradeep%22%2C%20%22Documents%22%2C%20%22Obsidian%20Vault%22%2C%20%22attachments%22)%3B%0Aconst%20staticImagesDir%20%3D%20path.join(%22C%3A%22%2C%20%22Users%22%2C%20%22pradeep%22%2C%20%22Documents%22%2C%20%22specwiseblog%22%2C%20%22static%22%2C%20%22images%22)%3B%0A%0A%2F%2F%20Function%20to%20process%20Markdown%20files%0Afs.readdir(postsDir%2C%20(err%2C%20files)%20%3D%3E%20%7B%0A%C2%A0%20%C2%A0%20if%20(err)%20%7B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20console.error(%22Error%20reading%20posts%20directory%3A%22%2C%20err)%3B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20return%3B%0A%C2%A0%20%C2%A0%20%7D%0A%0A%C2%A0%20%C2%A0%20files.forEach((filename)%20%3D%3E%20%7B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20if%20(filename.endsWith(%22.md%22))%20%7B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20const%20filepath%20%3D%20path.join(postsDir%2C%20filename)%3B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20fs.readFile(filepath%2C%20%22utf-8%22%2C%20(err%2C%20content)%20%3D%3E%20%7B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20if%20(err)%20%7B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20console.error(%22Error%20reading%20file%3A%22%2C%20filepath%2C%20err)%3B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20return%3B%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%7D%0A%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%C2%A0%20%2F%2F%20Step%202%3A%20Find%20all%20image%20links%20in%20the%20format%20Image.png)
-                const imageMatches = content.match(/\[\[([^]*?\.png)\]\]/g);
-                if (imageMatches) {
-                    imageMatches.forEach((match) => {
-                        const imageName = match.replace(/\[\[|\]\]/g, ""); // Remove brackets
-                        const markdownImage = `![Image Description](/images/${encodeURIComponent(imageName)})`;
-                        content = content.replace(match, markdownImage);
-                        // Step 4: Copy the image if it exists
-                        const imageSource = path.join(attachmentsDir, imageName);
-                        const imageDest = path.join(staticImagesDir, imageName);
-                        if (fs.existsSync(imageSource)) {
-                            fs.copyFile(imageSource, imageDest, (err) => {
-                                if (err) {
-                                    console.error("Error copying file:", imageSource, "to", imageDest, err);
-                                }
-                            });
-                        } else {
-                            console.warn("Image not found:", imageSource);
-                        }
-                    });
-                    // Step 5: Write the updated content back to the file
-                    fs.writeFile(filepath, content, "utf-8", (err) => {
-                        if (err) {
-                            console.error("Error writing file:", filepath, err);
-                        }
-                    });
-                }
-            });
-        }
-    });
+        [[languages.en.menu.main]]
+          identifier = "about"
+          name = "About"
+          url = "/about"
+        [[languages.en.menu.main]]
+          identifier = "showcase"
+          name = "Showcase"
+          url = "/showcase"
+```
+
+
+### Test Hugo
+
+```bash
+## Verify Hugo works with your theme by running this command
+
+hugo server -t themename
+```
+
+
+# Walking Through the Steps
+
+_NOTE: There is a MEGA SCRIPT later in this blog that will do everything in one go._
+
+## Syncing Obsidian to Hugo
+
+### Windows
+
+```powershell
+robocopy sourcepath destination path /mir
+```
+
+
+### Mac/Linux
+
+```bash
+rsync -av --delete "sourcepath" "destinationpath"
+```
+
+
+## Add some frontmatter
+
+```bash
+---
+title: blogtitle
+date: 2024-11-06
+draft: false
+tags:
+  - tag1
+  - tag2
+---
+```
+
+
+## Transfer Images from Obsidian to Hugo
+
+### Windows
+
+```javascript
+const fs = require('fs');
+const path = require('path');
+
+// Paths
+const postsDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "content", "posts");
+const attachmentsDir = path.join("C:", "Users", "pradeep", "Documents", "Obsidian Vault", "attachments");
+const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "static", "images");
+
+// Ensure static images directory exists
+if (!fs.existsSync(staticImagesDir)) {
+    fs.mkdirSync(staticImagesDir, { recursive: true });
+    console.log(`Created missing directory: ${staticImagesDir}`);
+}
+
+// Function to process Markdown files
+fs.readdir(postsDir, (err, files) => {
+    if (err) {
+        console.error("Error reading posts directory:", err);
+        return;
+    }
+
+    files.forEach((filename) => {
+        if (filename.endsWith(".md")) {
+            const filepath = path.join(postsDir, filename);
+
+            fs.readFile(filepath, "utf-8", (err, content) => {
+                if (err) {
+                    console.error("Error reading file:", filepath, err);
+                    return;
+                }
+
+                // Step 2: Find all image links in the format ![Image Description](/images/Image.png)
+                const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi); // Support multiple image extensions
+
+                if (imageMatches) {
+                    imageMatches.forEach((match) => {
+                        const imageName = match.replace(/\[\[|\]\]/g, ""); // Remove brackets
+                        const markdownImage = `![Image Description](/images/${encodeURIComponent(imageName)})`;
+                        content = content.replace(match, markdownImage);
+
+                        // Step 4: Copy the image if it exists
+                        const imageSource = path.join(attachmentsDir, imageName);
+                        const imageDest = path.join(staticImagesDir, imageName);
+
+                        if (fs.existsSync(imageSource)) {
+                            fs.copyFile(imageSource, imageDest, (err) => {
+                                if (err) {
+                                    console.error("Error copying file:", imageSource, "to", imageDest, err);
+                                } else {
+                                    console.log(`Copied: ${imageName}`);
+                                }
+                            });
+                        } else {
+                            console.warn(`Image not found: ${imageSource}`);
+                        }
+                    });
+
+                    // Step 5: Write the updated content back to the file
+                    fs.writeFile(filepath, content, "utf-8", (err) => {
+                        if (err) {
+                            console.error("Error writing file:", filepath, err);
+                        } else {
+                            console.log(`Updated file: ${filepath}`);
+                        }
+                    });
+                } else {
+                    console.log(`No images found in: ${filepath}`);
+                }
+            });
+        } else {
+            console.log(`Skipping non-Markdown file: ${filename}`);
+        }
+    });
 });
+
 console.log("Markdown files processed and images copied successfully.");
 ```
 

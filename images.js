@@ -6,6 +6,12 @@ const postsDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog"
 const attachmentsDir = path.join("C:", "Users", "pradeep", "Documents", "Obsidian Vault", "attachments");
 const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "static", "images");
 
+// Ensure static images directory exists
+if (!fs.existsSync(staticImagesDir)) {
+    fs.mkdirSync(staticImagesDir, { recursive: true });
+    console.log(`Created missing directory: ${staticImagesDir}`);
+}
+
 // Function to process Markdown files
 fs.readdir(postsDir, (err, files) => {
     if (err) {
@@ -24,7 +30,7 @@ fs.readdir(postsDir, (err, files) => {
                 }
 
                 // Step 2: Find all image links in the format [[Image.png]]
-                const imageMatches = content.match(/\[\[([^]*?\.png)\]\]/g);
+                const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi); // Support multiple image extensions
 
                 if (imageMatches) {
                     imageMatches.forEach((match) => {
@@ -40,10 +46,12 @@ fs.readdir(postsDir, (err, files) => {
                             fs.copyFile(imageSource, imageDest, (err) => {
                                 if (err) {
                                     console.error("Error copying file:", imageSource, "to", imageDest, err);
+                                } else {
+                                    console.log(`Copied: ${imageName}`);
                                 }
                             });
                         } else {
-                            console.warn("Image not found:", imageSource);
+                            console.warn(`Image not found: ${imageSource}`);
                         }
                     });
 
@@ -51,10 +59,16 @@ fs.readdir(postsDir, (err, files) => {
                     fs.writeFile(filepath, content, "utf-8", (err) => {
                         if (err) {
                             console.error("Error writing file:", filepath, err);
+                        } else {
+                            console.log(`Updated file: ${filepath}`);
                         }
                     });
+                } else {
+                    console.log(`No images found in: ${filepath}`);
                 }
             });
+        } else {
+            console.log(`Skipping non-Markdown file: ${filename}`);
         }
     });
 });
