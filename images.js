@@ -4,7 +4,7 @@ const path = require('path');
 // Paths
 const postsDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "content", "posts");
 const attachmentsDir = path.join("C:", "Users", "pradeep", "Documents", "Obsidian Vault", "attachments");
-const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "static", "images");
+const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "assets", "images");
 
 // Ensure static images directory exists
 if (!fs.existsSync(staticImagesDir)) {
