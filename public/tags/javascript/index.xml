@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Terminal</title>
-    <link>/tags/javascript/</link>
+    <link>https://dev-pradeep-ns.github.io/specwiseblog/tags/javascript/</link>
     <description>Recent content in Javascript on Terminal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript Methods</title>
-      <link>/posts/javascript-methods/</link>
+      <link>https://dev-pradeep-ns.github.io/specwiseblog/posts/javascript-methods/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>/posts/javascript-methods/</guid>
+      <guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/javascript-methods/</guid>
       <description>&lt;h1 id=&#34;javascript-array-methods-examples&#34;&gt;JavaScript Array Methods Examples&lt;/h1&gt;
 &lt;p&gt;This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.&lt;/p&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;flatmap&#34;&gt;flatMap&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;flatMap()&lt;/code&gt; method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.&lt;/p&gt;</description>
@@ -31,13 +31,13 @@
 &lt;p&gt;This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.&lt;/p&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;flatmap&#34;&gt;flatMap&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;flatMap()&lt;/code&gt; method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.&lt;/p&gt;

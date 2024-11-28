@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Terminal</title>
-    <link>/posts/</link>
+    <link>https://dev-pradeep-ns.github.io/specwiseblog/posts/</link>
     <description>Recent content in Posts on Terminal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript Methods</title>
-      <link>/posts/javascript-methods/</link>
+      <link>https://dev-pradeep-ns.github.io/specwiseblog/posts/javascript-methods/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>/posts/javascript-methods/</guid>
+      <guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/javascript-methods/</guid>
       <description>&lt;h1 id=&#34;javascript-array-methods-examples&#34;&gt;JavaScript Array Methods Examples&lt;/h1&gt;
 &lt;p&gt;This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.&lt;/p&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;flatmap&#34;&gt;flatMap&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;flatMap()&lt;/code&gt; method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.&lt;/p&gt;</description>
@@ -31,13 +31,13 @@
 &lt;p&gt;This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.&lt;/p&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#flatmap&#34;&gt;flatMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#map&#34;&gt;map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#join&#34;&gt;join&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#split&#34;&gt;split&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#reduce&#34;&gt;reduce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#filter&#34;&gt;filter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/javascript-methods/#foreach&#34;&gt;forEach&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;flatmap&#34;&gt;flatMap&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;flatMap()&lt;/code&gt; method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.&lt;/p&gt;
@@ -212,10 +212,10 @@
     
     <item>
       <title>Jenkins Installation</title>
-      <link>/posts/jenkins-installation/</link>
+      <link>https://dev-pradeep-ns.github.io/specwiseblog/posts/jenkins-installation/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>/posts/jenkins-installation/</guid>
+      <guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/jenkins-installation/</guid>
       <description>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
 &lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
@@ -239,7 +239,7 @@ sudo ufw status
 &lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
 &lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
 &lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;</description>
       <content>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
 &lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
@@ -263,29 +263,29 @@ sudo ufw status
 &lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
 &lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
 &lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;in-the-terminal-window-use-the-cat-command-to-display-the-password-copy-the-32-character-alphanumeric-password-from-the-terminal-and-paste-it-into-the-administrator-password-field-then-click-continue&#34;&gt;In the terminal window, use the cat command to display the password. Copy the 32-character alphanumeric password from the terminal and paste it into the Administrator password field, then click Continue.:&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;the-next-screen-presents-the-option-of-installing-suggested-plugins-or-selecting-specific-plugins&#34;&gt;The next screen presents the option of installing suggested plugins or selecting specific plugins:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143708.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143708.png&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;well-click-the-install-suggested-plugins-option-which-will-immediately-begin-the-installation-process&#34;&gt;We’ll click the Install suggested plugins option, which will immediately begin the installation process.&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143715.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143715.png&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;after-installation-is-completed-the-below-window-will-be-displayed-enter-the-name-and-password-for-your-user-and-click-save-and-continue-button&#34;&gt;After Installation is completed, the Below window will be displayed, Enter the name and password for your user and click save and Continue Button:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143731.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143731.png&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;youll-receive-an-instance-configuration-page-that-will-ask-you-to-confirm-the-preferred-url-for-your-jenkins-instance-confirm-either-the-domain-name-for-your-server-or-your-servers-ip-address&#34;&gt;You’ll receive an Instance Configuration page that will ask you to confirm the preferred URL for your Jenkins instance. Confirm either the domain name for your server or your server’s IP address:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143747.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143747.png&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;click-save-and-finish-button-youll-receive-a-confirmation-page-confirming-that-jenkins-is-ready&#34;&gt;click save and finish Button. You’ll receive a confirmation page confirming that “Jenkins is Ready!”:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143759.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128143759.png&#34;&gt;&lt;/p&gt;
 </content>
     </item>
     
     <item>
       <title>My Insane Blog Pipeline</title>
-      <link>/posts/my-insane-blog-pipeline/</link>
+      <link>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>/posts/my-insane-blog-pipeline/</guid>
+      <guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</guid>
       <description>&lt;h1 id=&#34;obsidian---why-i-love-it&#34;&gt;Obsidian - Why I Love IT&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;obsidian is the Best notes application in the world. Go download it: &lt;a href=&#34;https://obsidian.md/&#34;&gt;https://obsidian.md/&lt;/a&gt;&lt;/li&gt;
@@ -297,7 +297,7 @@ sudo ufw status
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -317,7 +317,7 @@ sudo ufw status
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;https://dev-pradeep-ns.github.io/specwiseblog/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;

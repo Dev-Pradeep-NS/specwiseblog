@@ -4,7 +4,7 @@ const path = require('path');
 // Paths
 const postsDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "content", "posts");
 const attachmentsDir = path.join("C:", "Users", "pradeep", "Documents", "Obsidian Vault", "attachments");
-const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "assets", "images");
+const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "static", "images");
 
 // Ensure static images directory exists
 if (!fs.existsSync(staticImagesDir)) {
@@ -38,18 +38,22 @@ fs.readdir(postsDir, (err, files) => {
                         const markdownImage = `![Image Description](/images/${encodeURIComponent(imageName)})`;
                         content = content.replace(match, markdownImage);
 
-                        // Step 4: Copy the image if it exists
+                        // Step 4: Copy the image if it exists and hasn't been copied before
                         const imageSource = path.join(attachmentsDir, imageName);
                         const imageDest = path.join(staticImagesDir, imageName);
 
                         if (fs.existsSync(imageSource)) {
-                            fs.copyFile(imageSource, imageDest, (err) => {
-                                if (err) {
-                                    console.error("Error copying file:", imageSource, "to", imageDest, err);
-                                } else {
-                                    console.log(`Copied: ${imageName}`);
-                                }
-                            });
+                            if (!fs.existsSync(imageDest)) {
+                                fs.copyFile(imageSource, imageDest, (err) => {
+                                    if (err) {
+                                        console.error("Error copying file:", imageSource, "to", imageDest, err);
+                                    } else {
+                                        console.log(`Copied: ${imageName}`);
+                                    }
+                                });
+                            } else {
+                                console.log(`Image already exists, skipping copy: ${imageName}`);
+                            }
                         } else {
                             console.warn(`Image not found: ${imageSource}`);
                         }
