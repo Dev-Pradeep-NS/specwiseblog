@@ -29,16 +29,16 @@ fs.readdir(postsDir, (err, files) => {
                     return;
                 }
 
-                // Step 2: Find all image links in the format [[Image.png]]
-                const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi); // Support multiple image extensions
+                // Find all image links in the format [[Image.png]]
+                const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi);
 
                 if (imageMatches) {
                     imageMatches.forEach((match) => {
-                        const imageName = match.replace(/\[\[|\]\]/g, ""); // Remove brackets
-                        const markdownImage = `![Image Description](/images/${encodeURIComponent(imageName)})`;
+                        const imageName = match.replace(/\[\[|\]\]/g, "");
+                        // Update this line to include the full path for GitHub Pages
+                        const markdownImage = `![Image Description](/specwiseblog/images/${encodeURIComponent(imageName)})`;
                         content = content.replace(match, markdownImage);
 
-                        // Step 4: Copy the image if it exists and hasn't been copied before
                         const imageSource = path.join(attachmentsDir, imageName);
                         const imageDest = path.join(staticImagesDir, imageName);
 
@@ -59,7 +59,6 @@ fs.readdir(postsDir, (err, files) => {
                         }
                     });
 
-                    // Step 5: Write the updated content back to the file
                     fs.writeFile(filepath, content, "utf-8", (err) => {
                         if (err) {
                             console.error("Error writing file:", filepath, err);

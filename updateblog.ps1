@@ -87,7 +87,7 @@ try {
 # Step 4: Build the Hugo site
 Write-Host "Building the Hugo site..."
 try {
-    hugo
+    hugo --minify
 } catch {
     Write-Error "Hugo build failed."
     exit 1

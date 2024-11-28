@@ -16,7 +16,7 @@ tags:
 - Actually…wait….find out where your Obsidian directories are. Right click your _posts_ folder and choose _show in system explorer_
 - You’ll need this directory in upcoming steps.
 
-!![Image Description](/images/Pasted-image-20241128121356.png)
+!![Image Description](/specwiseblog/images/Pasted-image-20241128121356.png)
 ## Setting up Hugo
 
 ### Prerequisites
@@ -239,7 +239,7 @@ fs.readdir(postsDir, (err, files) => {
                     return;
                 }
 
-                // Step 2: Find all image links in the format ![Image Description](/images/Image.png)
+                // Step 2: Find all image links in the format ![Image Description](/specwiseblog/images/Image.png)
                 const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi); // Support multiple image extensions
 
                 if (imageMatches) {
