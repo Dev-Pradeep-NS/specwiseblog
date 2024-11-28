@@ -1,6 +1,6 @@
 ---
 title: My Insane Blog Pipeline
-date: 2024-11-06
+date: 2024-11-28
 draft: false
 tags:
   - Specwise
@@ -9,7 +9,7 @@ tags:
 # Obsidian - Why I Love IT
 - obsidian is the Best notes application in the world. Go download it: [https://obsidian.md/](https://obsidian.md/)
 
-## The Setup[](https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#the-setup)
+## The Setup
 
 - Create a new folder labeled _posts_. This is where you will add your blog posts
 - ….that’s all you have to do

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Javascript Methods :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JavaScript Array Methods Examples This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.
+Table of Contents flatMap map join split reduce filter forEach flatMap The flatMap() method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/javascript-methods/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="/css/buttons.min.2bc533403a27dfe0e93105a92502b42ce4587e2e4a87d9f7d349e51e16e09478.css">
+
+  
+  <link rel="stylesheet" href="/css/code.min.00125962708925857e7b66dbc58391d55be1191a3d0ce2034de8c9cd2c481c36.css">
+
+  
+  <link rel="stylesheet" href="/css/fonts.min.4881f0c525f3ce2a1864fb6e96676396cebe1e6fcef1933e8e1dde7041004fb5.css">
+
+  
+  <link rel="stylesheet" href="/css/footer.min.2e3eb191baee58dd05a9f0104ac1fab0827bca7c64dafe0b2579f934c33a1d69.css">
+
+  
+  <link rel="stylesheet" href="/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="/css/header.min.b6fb4423cf82a9f9d7abc9cd010223fa3d70a6526a3f28f8e17d814c06e18f9e.css">
+
+  
+  <link rel="stylesheet" href="/css/main.min.fe8dc560fccb53a458b0db19ccb7b265764ac46b68596b7e099c6793054dd457.css">
+
+  
+  <link rel="stylesheet" href="/css/menu.min.83637a90d903026bc280d3f82f96ceb06c5fc72b7c1a8d686afb5bbf818a29f7.css">
+
+  
+  <link rel="stylesheet" href="/css/pagination.min.82f6400eae7c7c6dc3c866733c2ec0579e4089608fea69400ff85b3880aa0d3c.css">
+
+  
+  <link rel="stylesheet" href="/css/post.min.fc74ca360273c1d828da3c02b8174eba435607b369d98418ccc6f2243cd4e75d.css">
+
+  
+  <link rel="stylesheet" href="/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
+
+  
+  <link rel="stylesheet" href="/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
+
+  
+  <link rel="stylesheet" href="/css/terminal.min.dd0bf9c7cacb24c1b0184f52f1869b274e06689557468cc7030ccf632328eb97.css">
+
+  
+  <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Javascript Methods">
+<meta property="og:description" content="JavaScript Array Methods Examples This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.
+Table of Contents flatMap map join split reduce filter forEach flatMap The flatMap() method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.
+" />
+<meta property="og:url" content="/posts/javascript-methods/" />
+<meta property="og:site_name" content="Terminal" />
+
+  <meta property="og:image" content="/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2024-11-28 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/showcase" >Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/javascript-methods/">Javascript Methods</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2024-11-28</time></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/javascript/">javascript</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="javascript-array-methods-examples">JavaScript Array Methods Examples<a href="#javascript-array-methods-examples" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p>This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.</p>
+<h2 id="table-of-contents">Table of Contents<a href="#table-of-contents" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ol>
+<li><a href="/posts/javascript-methods/#flatmap">flatMap</a></li>
+<li><a href="/posts/javascript-methods/#map">map</a></li>
+<li><a href="/posts/javascript-methods/#join">join</a></li>
+<li><a href="/posts/javascript-methods/#split">split</a></li>
+<li><a href="/posts/javascript-methods/#reduce">reduce</a></li>
+<li><a href="/posts/javascript-methods/#filter">filter</a></li>
+<li><a href="/posts/javascript-methods/#foreach">forEach</a></li>
+</ol>
+<h2 id="flatmap">flatMap<a href="#flatmap" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>flatMap()</code> method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.</p>
+<h3 id="array-example">Array Example<a href="#array-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">flatMap</span>((<span style="color:#a6e22e">x</span>) =&gt; [<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>); <span style="color:#75715e">// [1, 2, 2, 4, 3, 6, 4, 8]
+</span></span></span></code></pre></div><h3 id="array-of-objects-example">Array of Objects Example<a href="#array-of-objects-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#a6e22e">hobbies</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;reading&#34;</span>, <span style="color:#e6db74">&#34;swimming&#34;</span>] },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jane&#34;</span>, <span style="color:#a6e22e">hobbies</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;painting&#34;</span>, <span style="color:#e6db74">&#34;running&#34;</span>] },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">allHobbies</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">flatMap</span>((<span style="color:#a6e22e">user</span>) =&gt; <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">hobbies</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">allHobbies</span>); <span style="color:#75715e">// [&#39;reading&#39;, &#39;swimming&#39;, &#39;painting&#39;, &#39;running&#39;]
+</span></span></span></code></pre></div><h3 id="nested-array-of-objects-example">Nested Array of Objects Example<a href="#nested-array-of-objects-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">departments</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Engineering&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alice&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bob&#34;</span> }] },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Marketing&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charlie&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;David&#34;</span> }] },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">allEmployees</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">departments</span>.<span style="color:#a6e22e">flatMap</span>((<span style="color:#a6e22e">dept</span>) =&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">employees</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">emp</span>) =&gt; <span style="color:#a6e22e">emp</span>.<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">allEmployees</span>); <span style="color:#75715e">// [&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;, &#39;David&#39;]
+</span></span></span></code></pre></div><h2 id="map">map<a href="#map" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>map()</code> method creates a new array with the results of calling a provided function on every element in the array.</p>
+<h3 id="array-example-1">Array Example<a href="#array-example-1" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">squared</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">x</span>) =&gt; <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">squared</span>); <span style="color:#75715e">// [1, 4, 9, 16]
+</span></span></span></code></pre></div><h3 id="array-of-objects-example-1">Array of Objects Example<a href="#array-of-objects-example-1" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jane&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">28</span> },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">names</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">user</span>) =&gt; <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">names</span>); <span style="color:#75715e">// [&#39;John&#39;, &#39;Jane&#39;]
+</span></span></span></code></pre></div><h3 id="nested-array-of-objects-example-1">Nested Array of Objects Example<a href="#nested-array-of-objects-example-1" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">departments</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Engineering&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alice&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bob&#34;</span> }] },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Marketing&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charlie&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;David&#34;</span> }] },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">deptInfo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">departments</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">dept</span>) =&gt; ({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">name</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">employeeCount</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">employees</span>.<span style="color:#a6e22e">length</span>,
+</span></span><span style="display:flex;"><span>}));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">deptInfo</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   { name: &#39;Engineering&#39;, employeeCount: 2 },
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   { name: &#39;Marketing&#39;, employeeCount: 2 }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ]
+</span></span></span></code></pre></div><h2 id="join">join<a href="#join" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>join()</code> method creates and returns a new string by concatenating all of the elements in an array, separated by a specified separator string.</p>
+<h3 id="array-example-2">Array Example<a href="#array-example-2" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fruits</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Apple&#34;</span>, <span style="color:#e6db74">&#34;Banana&#34;</span>, <span style="color:#e6db74">&#34;Orange&#34;</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fruits</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;, &#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>); <span style="color:#75715e">// &#39;Apple, Banana, Orange&#39;
+</span></span></span></code></pre></div><h3 id="array-of-objects-example-2">Array of Objects Example<a href="#array-of-objects-example-2" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jane&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">28</span> },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">namesString</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">user</span>) =&gt; <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34; and &#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">namesString</span>); <span style="color:#75715e">// &#39;John and Jane&#39;
+</span></span></span></code></pre></div><h2 id="split">split<a href="#split" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>split()</code> method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.</p>
+<h3 id="string-example">String Example<a href="#string-example" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sentence</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The quick brown fox jumps over the lazy dog&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">words</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sentence</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">words</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [&#39;The&#39;, &#39;quick&#39;, &#39;brown&#39;, &#39;fox&#39;, &#39;jumps&#39;, &#39;over&#39;, &#39;the&#39;, &#39;lazy&#39;, &#39;dog&#39;]
+</span></span></span></code></pre></div><h2 id="reduce">reduce<a href="#reduce" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>reduce()</code> method executes a reducer function on each element of the array, resulting in a single output value.</p>
+<h3 id="array-example-3">Array Example<a href="#array-example-3" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">curr</span>) =&gt; <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">curr</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sum</span>); <span style="color:#75715e">// 10
+</span></span></span></code></pre></div><h3 id="array-of-objects-example-3">Array of Objects Example<a href="#array-of-objects-example-3" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">orders</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">total</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">total</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">total</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span> },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">totalAmount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">orders</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">order</span>) =&gt; <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">order</span>.<span style="color:#a6e22e">total</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">totalAmount</span>); <span style="color:#75715e">// 600
+</span></span></span></code></pre></div><h3 id="nested-array-of-objects-example-2">Nested Array of Objects Example<a href="#nested-array-of-objects-example-2" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">departments</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Engineering&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">salary</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span> }, { <span style="color:#a6e22e">salary</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">90000</span> }] },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Marketing&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">salary</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">70000</span> }, { <span style="color:#a6e22e">salary</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">75000</span> }] },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">totalSalary</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">departments</span>.<span style="color:#a6e22e">reduce</span>(
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">dept</span>) =&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">employees</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">deptAcc</span>, <span style="color:#a6e22e">emp</span>) =&gt; <span style="color:#a6e22e">deptAcc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">emp</span>.<span style="color:#a6e22e">salary</span>, <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">totalSalary</span>); <span style="color:#75715e">// 315000
+</span></span></span></code></pre></div><h2 id="filter">filter<a href="#filter" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>filter()</code> method creates a new array with all elements that pass the test implemented by the provided function.</p>
+<h3 id="array-example-4">Array Example<a href="#array-example-4" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">evenNumbers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">num</span>) =&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">evenNumbers</span>); <span style="color:#75715e">// [2, 4, 6]
+</span></span></span></code></pre></div><h3 id="array-of-objects-example-4">Array of Objects Example<a href="#array-of-objects-example-4" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jane&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">28</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bob&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">35</span> },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">over30</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">user</span>) =&gt; <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">over30</span>); <span style="color:#75715e">// [{ name: &#39;Bob&#39;, age: 35 }]
+</span></span></span></code></pre></div><h3 id="nested-array-of-objects-example-3">Nested Array of Objects Example<a href="#nested-array-of-objects-example-3" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">departments</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Engineering&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alice&#34;</span>, <span style="color:#a6e22e">exp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bob&#34;</span>, <span style="color:#a6e22e">exp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> },
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Marketing&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charlie&#34;</span>, <span style="color:#a6e22e">exp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;David&#34;</span>, <span style="color:#a6e22e">exp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span> },
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">experiencedDepts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">departments</span>.<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">dept</span>) =&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">employees</span>.<span style="color:#a6e22e">some</span>((<span style="color:#a6e22e">emp</span>) =&gt; <span style="color:#a6e22e">emp</span>.<span style="color:#a6e22e">exp</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">experiencedDepts</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   { name: &#39;Engineering&#39;, employees: [{ name: &#39;Alice&#39;, exp: 5 }, { name: &#39;Bob&#39;, exp: 3 }] },
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//   { name: &#39;Marketing&#39;, employees: [{ name: &#39;Charlie&#39;, exp: 2 }, { name: &#39;David&#39;, exp: 4 }] }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ]
+</span></span></span></code></pre></div><h2 id="foreach">forEach<a href="#foreach" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The <code>forEach()</code> method executes a provided function once for each array element.</p>
+<h3 id="array-example-5">Array Example<a href="#array-example-5" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">num</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>));
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 8
+</span></span></span></code></pre></div><h3 id="array-of-objects-example-5">Array of Objects Example<a href="#array-of-objects-example-5" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jane&#34;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">28</span> },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">user</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> is </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> years old`</span>));
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// John is 30 years old
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Jane is 28 years old
+</span></span></span></code></pre></div><h3 id="nested-array-of-objects-example-4">Nested Array of Objects Example<a href="#nested-array-of-objects-example-4" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">departments</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Engineering&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alice&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Bob&#34;</span> }] },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Marketing&#34;</span>, <span style="color:#a6e22e">employees</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charlie&#34;</span> }, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;David&#34;</span> }] },
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">departments</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">dept</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> department:`</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dept</span>.<span style="color:#a6e22e">employees</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">emp</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`- </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">emp</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>));
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Engineering department:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// - Alice
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// - Bob
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Marketing department:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// - Charlie
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// - David
+</span></span></span></code></pre></div>
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="/posts/my-insane-blog-pipeline/" class="button inline next">
+        My Insane Blog Pipeline
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2024 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

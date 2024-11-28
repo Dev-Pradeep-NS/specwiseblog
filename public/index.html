@@ -181,10 +181,54 @@
     
       <article class="post on-list">
         <h2 class="post-title">
+          <a href="/posts/javascript-methods/">Javascript Methods</a>
+        </h2>
+
+        <div class="post-meta"><time class="post-date">2024-11-28</time></div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/javascript/">javascript</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <h1 id="javascript-array-methods-examples">JavaScript Array Methods Examples</h1>
+<p>This repository provides examples of common JavaScript array methods: flatMap, map, join, split, reduce, filter, and forEach. These examples cover usage with arrays, arrays of objects, and nested arrays of objects.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="/posts/javascript-methods/#flatmap">flatMap</a></li>
+<li><a href="/posts/javascript-methods/#map">map</a></li>
+<li><a href="/posts/javascript-methods/#join">join</a></li>
+<li><a href="/posts/javascript-methods/#split">split</a></li>
+<li><a href="/posts/javascript-methods/#reduce">reduce</a></li>
+<li><a href="/posts/javascript-methods/#filter">filter</a></li>
+<li><a href="/posts/javascript-methods/#foreach">forEach</a></li>
+</ol>
+<h2 id="flatmap">flatMap</h2>
+<p>The <code>flatMap()</code> method creates a new array with the results of calling a provided function on every element in the array, and then flattening the result by one level.</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/javascript-methods/">Read more</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
           <a href="/posts/my-insane-blog-pipeline/">My Insane Blog Pipeline</a>
         </h2>
 
-        <div class="post-meta"><time class="post-date">2024-11-06</time></div>
+        <div class="post-meta"><time class="post-date">2024-11-28</time></div>
 
         
           <span class="post-tags">
@@ -205,7 +249,7 @@
 <ul>
 <li>obsidian is the Best notes application in the world. Go download it: <a href="https://obsidian.md/">https://obsidian.md/</a></li>
 </ul>
-<h2 id="the-setuphttpsblognetworkchuckcompostsmy-insane-blog-pipelinethe-setup">The Setup<a href="https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#the-setup"></a></h2>
+<h2 id="the-setup">The Setup</h2>
 <ul>
 <li>Create a new folder labeled <em>posts</em>. This is where you will add your blog posts</li>
 <li>….that’s all you have to do</li>
@@ -227,6 +271,54 @@
         
           <div>
             <a class="read-more button inline" href="/posts/my-insane-blog-pipeline/">Read more</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="/posts/jenkins-installation/"></a>
+        </h2>
+
+        <div class="post-meta"></div>
+
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <h2 id="how-to-install-jenkins-on-ubuntu-2204">How to Install jenkins on Ubuntu 22.04</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.</p>
+<h3 id="step-1-installing-jenkins">Step 1: Installing Jenkins</h3>
+<pre><code>sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+</code></pre>
+<h3 id="step-2--starting-jenkins">Step 2 — Starting Jenkins</h3>
+<pre><code>sudo service jenkins enable
+sudo service jenkins start
+sudo service jenkins status
+</code></pre>
+<h3 id="step-3--opening-the-firewall----by-default-jenkins-runs-on-port-8080-open-the-port-using-ufw">Step 3 — Opening the Firewall &ndash; By default jenkins runs on port 8080. Open the port using ufw</h3>
+<pre><code>sudo ufw allow 8080
+sudo ufw allow ssh
+sudo ufw enable
+sudo ufw status
+</code></pre>
+<h3 id="step-4--setting-up-jenkins">Step 4 — Setting Up Jenkins</h3>
+<h4 id="to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080">To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080</h4>
+<h4 id="you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password">You should receive the Unlock Jenkins screen, which displays the location of the initial password:</h4>
+<p>!<img alt="Image Description" src="/images/Pasted%20image%2020241128143627.png"></p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/jenkins-installation/">Read more</a>
           </div>
         
       </article>
