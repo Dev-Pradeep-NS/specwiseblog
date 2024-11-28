@@ -11,6 +11,12 @@
     <loc>/posts/javascript-methods/</loc>
     <lastmod>2024-11-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/jenkins/</loc>
+    <lastmod>2024-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/jenkins-installation/</loc>
+    <lastmod>2024-11-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/my-insane-blog-pipeline/</loc>
     <lastmod>2024-11-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -25,8 +31,6 @@
   </url><url>
     <loc>/</loc>
     <lastmod>2024-11-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/jenkins-installation/</loc>
   </url><url>
     <loc>/categories/</loc>
   </url>

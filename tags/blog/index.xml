@@ -24,7 +24,7 @@
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -44,7 +44,7 @@
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -198,7 +198,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - tag2
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;transfer-images-from-obsidian-to-hugo&#34;&gt;Transfer Images from Obsidian to Hugo&lt;/h2&gt;
-&lt;h3 id=&#34;windows-1&#34;&gt;Windows&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;path&amp;#39;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

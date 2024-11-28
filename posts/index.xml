@@ -211,6 +211,76 @@
     </item>
     
     <item>
+      <title>Jenkins Installation</title>
+      <link>/posts/jenkins-installation/</link>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/jenkins-installation/</guid>
+      <description>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
+&lt;h3 id=&#34;step-1-installing-jenkins&#34;&gt;Step 1: Installing Jenkins&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &amp;gt; /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-2--starting-jenkins&#34;&gt;Step 2 — Starting Jenkins&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo service jenkins enable
+sudo service jenkins start
+sudo service jenkins status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-3--opening-the-firewall----by-default-jenkins-runs-on-port-8080-open-the-port-using-ufw&#34;&gt;Step 3 — Opening the Firewall &amp;ndash; By default jenkins runs on port 8080. Open the port using ufw&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo ufw allow 8080
+sudo ufw allow ssh
+sudo ufw enable
+sudo ufw status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
+&lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
+&lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
+&lt;h3 id=&#34;step-1-installing-jenkins&#34;&gt;Step 1: Installing Jenkins&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &amp;gt; /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-2--starting-jenkins&#34;&gt;Step 2 — Starting Jenkins&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo service jenkins enable
+sudo service jenkins start
+sudo service jenkins status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-3--opening-the-firewall----by-default-jenkins-runs-on-port-8080-open-the-port-using-ufw&#34;&gt;Step 3 — Opening the Firewall &amp;ndash; By default jenkins runs on port 8080. Open the port using ufw&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo ufw allow 8080
+sudo ufw allow ssh
+sudo ufw enable
+sudo ufw status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
+&lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
+&lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143627.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;in-the-terminal-window-use-the-cat-command-to-display-the-password-copy-the-32-character-alphanumeric-password-from-the-terminal-and-paste-it-into-the-administrator-password-field-then-click-continue&#34;&gt;In the terminal window, use the cat command to display the password. Copy the 32-character alphanumeric password from the terminal and paste it into the Administrator password field, then click Continue.:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;the-next-screen-presents-the-option-of-installing-suggested-plugins-or-selecting-specific-plugins&#34;&gt;The next screen presents the option of installing suggested plugins or selecting specific plugins:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143708.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;well-click-the-install-suggested-plugins-option-which-will-immediately-begin-the-installation-process&#34;&gt;We’ll click the Install suggested plugins option, which will immediately begin the installation process.&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143715.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;after-installation-is-completed-the-below-window-will-be-displayed-enter-the-name-and-password-for-your-user-and-click-save-and-continue-button&#34;&gt;After Installation is completed, the Below window will be displayed, Enter the name and password for your user and click save and Continue Button:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143731.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;youll-receive-an-instance-configuration-page-that-will-ask-you-to-confirm-the-preferred-url-for-your-jenkins-instance-confirm-either-the-domain-name-for-your-server-or-your-servers-ip-address&#34;&gt;You’ll receive an Instance Configuration page that will ask you to confirm the preferred URL for your Jenkins instance. Confirm either the domain name for your server or your server’s IP address:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143747.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;click-save-and-finish-button-youll-receive-a-confirmation-page-confirming-that-jenkins-is-ready&#34;&gt;click save and finish Button. You’ll receive a confirmation page confirming that “Jenkins is Ready!”:&lt;/h4&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128143759.png&#34;&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
       <title>My Insane Blog Pipeline</title>
       <link>/posts/my-insane-blog-pipeline/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
@@ -227,7 +297,7 @@
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -247,7 +317,7 @@
 &lt;li&gt;Actually…wait….find out where your Obsidian directories are. Right click your &lt;em&gt;posts&lt;/em&gt; folder and choose &lt;em&gt;show in system explorer&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;You’ll need this directory in upcoming steps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128121356.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted-image-20241128121356.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-hugo&#34;&gt;Setting up Hugo&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
@@ -401,7 +471,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - tag2
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;transfer-images-from-obsidian-to-hugo&#34;&gt;Transfer Images from Obsidian to Hugo&lt;/h2&gt;
-&lt;h3 id=&#34;windows-1&#34;&gt;Windows&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;path&amp;#39;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -765,76 +834,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;All done! Site synced, processed, committed, built, and deployed.&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/posts/jenkins-installation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/jenkins-installation/</guid>
-      <description>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
-&lt;h3 id=&#34;step-1-installing-jenkins&#34;&gt;Step 1: Installing Jenkins&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &amp;gt; /dev/null
-sudo apt-get update
-sudo apt-get install jenkins
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-2--starting-jenkins&#34;&gt;Step 2 — Starting Jenkins&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo service jenkins enable
-sudo service jenkins start
-sudo service jenkins status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-3--opening-the-firewall----by-default-jenkins-runs-on-port-8080-open-the-port-using-ufw&#34;&gt;Step 3 — Opening the Firewall &amp;ndash; By default jenkins runs on port 8080. Open the port using ufw&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo ufw allow 8080
-sudo ufw allow ssh
-sudo ufw enable
-sudo ufw status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
-&lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
-&lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143627.png&#34;&gt;&lt;/p&gt;</description>
-      <content>&lt;h2 id=&#34;how-to-install-jenkins-on-ubuntu-2204&#34;&gt;How to Install jenkins on Ubuntu 22.04&lt;/h2&gt;
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;Jenkins is an open-source automation server that automates the repetitive technical tasks involved in the continuous integration and delivery of software. Jenkins is Java-based, installed from Ubuntu packages or by downloading and running its web application archive (WAR) file — a collection of files that make up a complete web application to run on a server.&lt;/p&gt;
-&lt;h3 id=&#34;step-1-installing-jenkins&#34;&gt;Step 1: Installing Jenkins&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &amp;gt; /dev/null
-sudo apt-get update
-sudo apt-get install jenkins
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-2--starting-jenkins&#34;&gt;Step 2 — Starting Jenkins&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo service jenkins enable
-sudo service jenkins start
-sudo service jenkins status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-3--opening-the-firewall----by-default-jenkins-runs-on-port-8080-open-the-port-using-ufw&#34;&gt;Step 3 — Opening the Firewall &amp;ndash; By default jenkins runs on port 8080. Open the port using ufw&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;sudo ufw allow 8080
-sudo ufw allow ssh
-sudo ufw enable
-sudo ufw status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;step-4--setting-up-jenkins&#34;&gt;Step 4 — Setting Up Jenkins&lt;/h3&gt;
-&lt;h4 id=&#34;to-set-up-your-installation-visit-jenkins-on-its-default-port-8080-using-your-server-domain-name-or-ip-address-httpyour_server_ip_or_domain8080&#34;&gt;To set up your installation, visit Jenkins on its default port, 8080, using your server domain name or IP address: http://your_server_ip_or_domain:8080&lt;/h4&gt;
-&lt;h4 id=&#34;you-should-receive-the-unlock-jenkins-screen-which-displays-the-location-of-the-initial-password&#34;&gt;You should receive the Unlock Jenkins screen, which displays the location of the initial password:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143627.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;in-the-terminal-window-use-the-cat-command-to-display-the-password-copy-the-32-character-alphanumeric-password-from-the-terminal-and-paste-it-into-the-administrator-password-field-then-click-continue&#34;&gt;In the terminal window, use the cat command to display the password. Copy the 32-character alphanumeric password from the terminal and paste it into the Administrator password field, then click Continue.:&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;the-next-screen-presents-the-option-of-installing-suggested-plugins-or-selecting-specific-plugins&#34;&gt;The next screen presents the option of installing suggested plugins or selecting specific plugins:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143708.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;well-click-the-install-suggested-plugins-option-which-will-immediately-begin-the-installation-process&#34;&gt;We’ll click the Install suggested plugins option, which will immediately begin the installation process.&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143715.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;after-installation-is-completed-the-below-window-will-be-displayed-enter-the-name-and-password-for-your-user-and-click-save-and-continue-button&#34;&gt;After Installation is completed, the Below window will be displayed, Enter the name and password for your user and click save and Continue Button:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143731.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;youll-receive-an-instance-configuration-page-that-will-ask-you-to-confirm-the-preferred-url-for-your-jenkins-instance-confirm-either-the-domain-name-for-your-server-or-your-servers-ip-address&#34;&gt;You’ll receive an Instance Configuration page that will ask you to confirm the preferred URL for your Jenkins instance. Confirm either the domain name for your server or your server’s IP address:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143747.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;click-save-and-finish-button-youll-receive-a-confirmation-page-confirming-that-jenkins-is-ready&#34;&gt;click save and finish Button. You’ll receive a confirmation page confirming that “Jenkins is Ready!”:&lt;/h4&gt;
-&lt;p&gt;!&lt;img alt=&#34;Image Description&#34; src=&#34;/images/Pasted%20image%2020241128143759.png&#34;&gt;&lt;/p&gt;
-</content>
     </item>
     
   </channel>
