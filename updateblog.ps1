@@ -1,11 +1,20 @@
-# PowerShell Script for Windows
+# Function to load .env file into environment variables
+function Load-EnvFile {
+    param (
+        [string]$FilePath
+    )
 
-# Set variables for Obsidian to Hugo copy
-$sourcePath = "C:\Users\pradeep\Documents\Obsidian Vault\posts"
-$destinationPath = "C:\Users\pradeep\Documents\specwiseblog\content\posts"
+    if (-not (Test-Path $FilePath)) {
+        Write-Error ".env file not found: $FilePath"
+        exit 1
+    }
 
-# Set Github repo 
-$myrepo = "git@github.com-Personal:Dev-Pradeep-NS/specwiseblog.git"
+    Get-Content $FilePath | ForEach-Object {
+        if ($_ -match '^\s*([^#].*?)=(.*)$') {
+            [Environment]::SetEnvironmentVariable($matches[1], $matches[2].Trim())
+        }
+    }
+}
 
 # Set error handling
 $ErrorActionPreference = "Stop"
@@ -15,17 +24,39 @@ Set-StrictMode -Version Latest
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Set-Location $ScriptDir
 
-# Check for required commands
-$requiredCommands = @('git', 'hugo')
+# Load the .env file
+$envFilePath = Join-Path $ScriptDir '.env'
+Load-EnvFile -FilePath $envFilePath
 
-# Check for node command
-if (Get-Command 'node' -ErrorAction SilentlyContinue) {
-    $nodeCommand = 'node'
-} else {
-    Write-Error "Node.js is not installed or not in PATH."
+# Use environment variables in the script
+$sourcePath = [Environment]::GetEnvironmentVariable('SOURCE_PATH')
+$destinationPath = [Environment]::GetEnvironmentVariable('DESTINATION_PATH')
+$myrepo = [Environment]::GetEnvironmentVariable('REPO_URL')
+$nodeCommand = [Environment]::GetEnvironmentVariable('NODE_COMMAND')
+
+# Validate environment variables
+if (-not $sourcePath) {
+    Write-Error "SOURCE_PATH is not defined in the .env file."
     exit 1
 }
 
+if (-not $destinationPath) {
+    Write-Error "DESTINATION_PATH is not defined in the .env file."
+    exit 1
+}
+
+if (-not $myrepo) {
+    Write-Error "REPO_URL is not defined in the .env file."
+    exit 1
+}
+
+if (-not $nodeCommand) {
+    Write-Error "NODE_COMMAND is not defined in the .env file."
+    exit 1
+}
+
+# Check for required commands
+$requiredCommands = @('git', 'hugo')
 foreach ($cmd in $requiredCommands) {
     if (-not (Get-Command $cmd -ErrorAction SilentlyContinue)) {
         Write-Error "$cmd is not installed or not in PATH."
@@ -72,7 +103,7 @@ if ($LASTEXITCODE -ge 8) {
 # Step 3: Process Markdown files with node script(js) to handle image links
 Write-Host "Processing image links in Markdown files..."
 if (-not (Test-Path "images.js")) {
-    Write-Error "java script images.js not found."
+    Write-Error "JavaScript file images.js not found."
     exit 1
 }
 

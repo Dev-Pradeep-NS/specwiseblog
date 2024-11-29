@@ -1,18 +1,16 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
-// Paths
-const postsDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "content", "posts");
-const attachmentsDir = path.join("C:", "Users", "pradeep", "Documents", "Obsidian Vault", "attachments");
-const staticImagesDir = path.join("C:", "Users", "pradeep", "Documents", "specwiseblog", "static", "images");
+const postsDir = path.resolve(process.env.POSTS_DIR);
+const attachmentsDir = path.resolve(process.env.ATTACHMENTS_DIR);
+const staticImagesDir = path.resolve(process.env.STATIC_IMAGES_DIR);
 
-// Ensure static images directory exists
 if (!fs.existsSync(staticImagesDir)) {
     fs.mkdirSync(staticImagesDir, { recursive: true });
     console.log(`Created missing directory: ${staticImagesDir}`);
 }
 
-// Function to process Markdown files
 fs.readdir(postsDir, (err, files) => {
     if (err) {
         console.error("Error reading posts directory:", err);

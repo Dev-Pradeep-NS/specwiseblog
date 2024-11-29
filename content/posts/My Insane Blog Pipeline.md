@@ -16,7 +16,7 @@ tags:
 - Actually…wait….find out where your Obsidian directories are. Right click your _posts_ folder and choose _show in system explorer_
 - You’ll need this directory in upcoming steps.
 
-!![Image Description](/specwiseblog/images/Pasted-image-20241128121356.png)
+!![Image Description](Pasted-image-20241128121356.png)
 ## Setting up Hugo
 
 ### Prerequisites
