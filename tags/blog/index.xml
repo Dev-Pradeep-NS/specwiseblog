@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on SpecWise Blog</title><link>https://dev-pradeep-ns.github.io/specwiseblog/tags/blog/</link><description>Recent content in Blog on SpecWise Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>My Insane Blog Pipeline</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</link><pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</guid><description>&lt;h1 id="obsidian---why-i-love-it">Obsidian - Why I Love IT&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on SpecWise Blog</title><link>https://dev-pradeep-ns.github.io/specwiseblog/tags/blog/</link><description>Recent content in Blog on SpecWise Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>How to kill the process currently using a port on localhost in windows</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</guid><description>&lt;h1 id="how-to-kill-a-process-using-a-specific-port-in-windows">How to Kill a Process Using a Specific Port in Windows&lt;/h1>
+&lt;p>Let&amp;rsquo;s say you&amp;rsquo;re trying to run a web server on port 8080, but you get an error saying the port is already in use. Here&amp;rsquo;s how you would troubleshoot:&lt;/p>
+&lt;h2 id="1-identify-the-process">1. Identify the Process&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Open Command Prompt as Administrator:&lt;/strong> Search for &amp;ldquo;cmd&amp;rdquo; in the Start Menu, right-click &amp;ldquo;Command Prompt,&amp;rdquo; and select &amp;ldquo;Run as administrator.&amp;rdquo;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Run &lt;code>netstat&lt;/code> to find the PID:&lt;/strong>&lt;/p></description><content>&lt;h1 id="how-to-kill-a-process-using-a-specific-port-in-windows">How to Kill a Process Using a Specific Port in Windows&lt;/h1>
+&lt;p>Let&amp;rsquo;s say you&amp;rsquo;re trying to run a web server on port 8080, but you get an error saying the port is already in use. Here&amp;rsquo;s how you would troubleshoot:&lt;/p>
+&lt;h2 id="1-identify-the-process">1. Identify the Process&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Open Command Prompt as Administrator:&lt;/strong> Search for &amp;ldquo;cmd&amp;rdquo; in the Start Menu, right-click &amp;ldquo;Command Prompt,&amp;rdquo; and select &amp;ldquo;Run as administrator.&amp;rdquo;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Run &lt;code>netstat&lt;/code> to find the PID:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>netstat -ano | findstr :8080
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Interpret the Output:&lt;/strong> The output will show the process using port 8080. For example:&lt;/p>
+&lt;pre tabindex="0">&lt;code>TCP 0.0.0.0:8080 0.0.0.0:0 LISTENING 4567
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>The PID is 4567&lt;/strong> (in this example). This is the process ID we need to kill.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-kill-the-process">2. Kill the Process&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Run &lt;code>taskkill&lt;/code> to terminate the process:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>taskkill /F /PID 4567
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>/F&lt;/code>: Forces the termination of the process.&lt;/li>
+&lt;li>&lt;code>/PID 4567&lt;/code>: Specifies the process to kill by its PID (replace &lt;code>4567&lt;/code> with the actual PID you found).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Confirmation:&lt;/strong> The output should confirm the process was terminated:&lt;/p>
+&lt;pre tabindex="0">&lt;code>SUCCESS: The process with PID 4567 has been terminated.
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-verify">3. Verify&lt;/h2>
+&lt;p>Now you can start your web server on port 8080.&lt;/p>
+&lt;h2 id="important-considerations">Important Considerations&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Run as Administrator:&lt;/strong> You &lt;em>must&lt;/em> run Command Prompt as administrator to see all processes.&lt;/li>
+&lt;li>&lt;strong>Be Careful:&lt;/strong> Make absolutely sure you are killing the correct process. Killing the wrong process can lead to data loss or system instability.&lt;/li>
+&lt;li>&lt;strong>Forced Termination:&lt;/strong> Using &lt;code>/F&lt;/code> forces the process to close. This might prevent the process from saving data or cleaning up resources. Use with caution and only if a normal shutdown isn&amp;rsquo;t possible.&lt;/li>
+&lt;li>&lt;strong>Alternatives:&lt;/strong> Consider if the application using port 8080 can be configured to use a different port, or if you can gracefully shut it down.&lt;/li>
+&lt;li>&lt;strong>Firewall:&lt;/strong> In some cases, a firewall might still prevent you from using the port even after killing the process. Check your firewall rules.&lt;/li>
+&lt;/ul></content></item><item><title>My Insane Blog Pipeline</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</link><pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/my-insane-blog-pipeline/</guid><description>&lt;h1 id="obsidian---why-i-love-it">Obsidian - Why I Love IT&lt;/h1>
 &lt;ul>
 &lt;li>obsidian is the Best notes application in the world. Go download it: &lt;a href="https://obsidian.md/">https://obsidian.md/&lt;/a>&lt;/li>
 &lt;/ul>
