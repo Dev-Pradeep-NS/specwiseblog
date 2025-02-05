@@ -27,13 +27,13 @@ fs.readdir(postsDir, (err, files) => {
                     return;
                 }
 
-                // Find all image links in the format [[Image.png]]
-                const imageMatches = content.match(/\[\[([^\]]+\.(png|jpg|jpeg|gif|svg))\]\]/gi);
+                // Updated regex to match !![Image Description](image.png) format
+                const imageMatches = content.match(/!!\[([^\]]*)\]\(([^)]+)\)/g);
 
                 if (imageMatches) {
                     imageMatches.forEach((match) => {
-                        const imageName = match.replace(/\[\[|\]\]/g, "");
-                        // Update this line to include the full path for GitHub Pages
+                        // Extract image name from the full match
+                        const imageName = match.match(/\(([^)]+)\)/)[1];
                         const markdownImage = `![Image Description](/specwiseblog/images/${encodeURIComponent(imageName)})`;
                         content = content.replace(match, markdownImage);
 
