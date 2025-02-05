@@ -1,4 +1,11 @@
-
+---
+title: How to kill the process currently using a port on localhost in windows
+date: 2025-02-05
+draft: false
+tags:
+  - blog
+---
+# How to Kill a Process Using a Specific Port in Windows
 
 Let's say you're trying to run a web server on port 8080, but you get an error saying the port is already in use.  Here's how you would troubleshoot:
 
