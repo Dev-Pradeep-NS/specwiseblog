@@ -1,4 +1,523 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on SpecWise Blog</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/</link><description>Recent content in Posts on SpecWise Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to kill the process currently using a port on localhost in windows</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</guid><description>&lt;h1 id="how-to-kill-a-process-using-a-specific-port-in-windows">How to Kill a Process Using a Specific Port in Windows&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on SpecWise Blog</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/</link><description>Recent content in Posts on SpecWise Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-pradeep-ns.github.io/specwiseblog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>CQG WebSocket API Client Package</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/cqg-websocket-api-client-package/</link><pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/cqg-websocket-api-client-package/</guid><description>&lt;h1 id="cqg-websocket-api-client-package-client">CQG WebSocket API Client Package (&lt;code>client&lt;/code>)&lt;/h1>
+&lt;p>This document provides a comprehensive guide to the &lt;code>client&lt;/code> package, designed for interacting with the CQG WebSocket API. It encompasses WebSocket connection management, message serialization/deserialization, and methods for various API operations such as logon, logoff, symbol resolution, market data subscription, and historical data retrieval.&lt;/p>
+&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;ol>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#overview">Overview&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#installation">Installation&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#usage">Usage&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#cqgclient-type">CQGClient Type&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#functions">Functions&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#newcqgclient-function">NewCQGClient Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#logon-function">Logon Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#logoff-function">Logoff Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#resolvesymbol-function">ResolveSymbol Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#resolveaccount-function">ResolveAccount Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#subscribemarketdata-function">SubscribeMarketData Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#requestbartime-function">RequestBarTime Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#handlemessages-function">HandleMessages Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#prettyprintproto-function">PrettyPrintProto Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#close-function">Close Function&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#data-flow">Data Flow&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#error-handling">Error Handling&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#environment-variables">Environment Variables&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#dependencies">Dependencies&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#example-code">Example Code&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package provides a robust and convenient way to interact with the CQG WebSocket API.  It encapsulates the complexities of WebSocket communication, Protocol Buffer (protobuf) serialization, and API authentication.  It offers a set of high-level functions to perform common tasks such as retrieving market data and historical information. This client is designed to work seamlessly with other parts of your application, especially the handler functions detailed in separate documentation.&lt;/p></description><content>&lt;h1 id="cqg-websocket-api-client-package-client">CQG WebSocket API Client Package (&lt;code>client&lt;/code>)&lt;/h1>
+&lt;p>This document provides a comprehensive guide to the &lt;code>client&lt;/code> package, designed for interacting with the CQG WebSocket API. It encompasses WebSocket connection management, message serialization/deserialization, and methods for various API operations such as logon, logoff, symbol resolution, market data subscription, and historical data retrieval.&lt;/p>
+&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;ol>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#overview">Overview&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#installation">Installation&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#usage">Usage&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#cqgclient-type">CQGClient Type&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#functions">Functions&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#newcqgclient-function">NewCQGClient Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#logon-function">Logon Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#logoff-function">Logoff Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#resolvesymbol-function">ResolveSymbol Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#resolveaccount-function">ResolveAccount Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#subscribemarketdata-function">SubscribeMarketData Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#requestbartime-function">RequestBarTime Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#handlemessages-function">HandleMessages Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#prettyprintproto-function">PrettyPrintProto Function&lt;/a>
+    *   &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#close-function">Close Function&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#data-flow">Data Flow&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#error-handling">Error Handling&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#environment-variables">Environment Variables&lt;/a>&lt;/li>
+&lt;li> &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#dependencies">Dependencies&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#example-code">Example Code&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package provides a robust and convenient way to interact with the CQG WebSocket API.  It encapsulates the complexities of WebSocket communication, Protocol Buffer (protobuf) serialization, and API authentication.  It offers a set of high-level functions to perform common tasks such as retrieving market data and historical information. This client is designed to work seamlessly with other parts of your application, especially the handler functions detailed in separate documentation.&lt;/p>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;p>Ensure that all required dependencies are also installed using:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>go mod tidy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package is typically used in conjunction with the Fiber framework to create API endpoints that provide access to CQG data.  See the examples in the handlers&amp;rsquo; documentation for concrete usage.&lt;/p>
+&lt;p>A typical workflow involves:&lt;/p>
+&lt;ol>
+&lt;li> Creating a &lt;code>CQGClient&lt;/code> instance using &lt;code>NewCQGClient&lt;/code>.&lt;/li>
+&lt;li> Logging on to the CQG API using &lt;code>Logon&lt;/code>.&lt;/li>
+&lt;li> Performing desired API operations like &lt;code>ResolveSymbol&lt;/code>, &lt;code>SubscribeMarketData&lt;/code>, or &lt;code>RequestBarTime&lt;/code>.&lt;/li>
+&lt;li> Handling incoming messages from the CQG API using &lt;code>HandleMessages&lt;/code>.&lt;/li>
+&lt;li> Closing the connection using &lt;code>Close&lt;/code> when the client is no longer needed.&lt;/li>
+&lt;/ol>
+&lt;h2 id="cqgclient-type">CQGClient Type&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">CQGClient&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">WS&lt;/span>               &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">websocket&lt;/span>.&lt;span style="color:#a6e22e">Conn&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">BaseTime&lt;/span>         &lt;span style="color:#66d9ef">int64&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">ContractMetadata&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">pb&lt;/span>.&lt;span style="color:#a6e22e">ContractMetadata&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>CQGClient&lt;/code> represents a client for interacting with the CQG WebSocket API.  It holds the WebSocket connection, base time (used for calculations), and contract metadata.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>WS&lt;/code>: WebSocket connection instance (&lt;code>*websocket.Conn&lt;/code> from &lt;code>github.com/gofiber/websocket/v2&lt;/code>).  This is the underlying WebSocket connection used for communication.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>BaseTime&lt;/code>: Base timestamp provided by the server (int64), used for time calculations and synchronization with the CQG API.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>ContractMetadata&lt;/code>:  A pointer to &lt;code>pb.ContractMetadata&lt;/code> (from &lt;code>go-websocket/proto/WebAPI&lt;/code>).  This holds metadata for the resolved contract, such as price scaling information.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="functions">Functions&lt;/h2>
+&lt;h3 id="newcqgclient-function">NewCQGClient Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">NewCQGClient&lt;/span>() (&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>, &lt;span style="color:#66d9ef">error&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>NewCQGClient&lt;/code> creates a new &lt;code>CQGClient&lt;/code> instance and establishes a WebSocket connection to the CQG API endpoint. The API endpoint is defined by environment variables (see &lt;a href="https://dev-pradeep-ns.github.io/specwiseblog/specwiseblog/posts/cqg-websocket-api-client-package/#environment-variables">Environment Variables&lt;/a>).&lt;/p>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>*CQGClient&lt;/code>: A pointer to the newly created &lt;code>CQGClient&lt;/code> instance if successful.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>error&lt;/code>: An error if any issue occurred during client creation or connection establishment. This could include network errors, invalid URLs, or problems with the WebSocket handshake.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">cqgClient&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">NewCQGClient&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Failed to create CQG client: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">defer&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Close&lt;/span>() &lt;span style="color:#75715e">// Ensure the connection is closed when done
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logon-function">Logon Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">Logon&lt;/span>(&lt;span style="color:#a6e22e">userName&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">password&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">clientAppId&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">clientVersion&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">protocolVersionMajor&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">protocolVersionMinor&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>) &lt;span style="color:#66d9ef">error&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Logon&lt;/code> authenticates the client with the CQG API using the provided credentials. This function sends a logon request to the CQG API and waits for a response to confirm successful authentication.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>userName&lt;/code>: The username for authentication (string). This corresponds to your CQG API account username.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>password&lt;/code>: The password for authentication (string). This corresponds to your CQG API account password.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>clientAppId&lt;/code>: The client application ID (string). This is an identifier for your application provided by CQG.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>clientVersion&lt;/code>: The client application version (string). This is the version number of your client application.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>protocolVersionMajor&lt;/code>: The major version of the protocol (uint32). This must match the protocol version supported by the CQG API.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>protocolVersionMinor&lt;/code>: The minor version of the protocol (uint32). This must also match the protocol version supported by the CQG API.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>error&lt;/code>: An error if any issue occurred during the logon process. This can include:&lt;/li>
+&lt;/ul>
+&lt;p>    *   Missing credentials.&lt;/p>
+&lt;p>    *   Serialization errors (if the logon message cannot be properly encoded).&lt;/p>
+&lt;p>    *   WebSocket write/read errors (if there are network issues).&lt;/p>
+&lt;p>    *   Server rejection (if the credentials are invalid or the API is unavailable).&lt;/p>
+&lt;p>    *   Invalid base time format (if the server returns an unexpected time format).&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Logon&lt;/span>(&lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;USERNAME&amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;PASSWORD&amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;CLIENT_APP_ID&amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;CLIENT_VERSION&amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">protocolMajor&lt;/span>, &lt;span style="color:#a6e22e">protocolMinor&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Logon failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logoff-function">Logoff Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">Logoff&lt;/span>() &lt;span style="color:#66d9ef">error&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Logoff&lt;/code> sends a logoff message to the CQG API, terminating the session gracefully.  It&amp;rsquo;s important to call this function when you&amp;rsquo;re done using the client to release resources on the server side.&lt;/p>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>error&lt;/code>: An error if any issue occurred during the logoff process.  This could include serialization errors or WebSocket write/read errors.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Logoff&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Logoff failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="resolvesymbol-function">ResolveSymbol Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">ResolveSymbol&lt;/span>(&lt;span style="color:#a6e22e">symbolName&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>, &lt;span style="color:#a6e22e">msgID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">subscribe&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span>) (&lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#66d9ef">error&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>ResolveSymbol&lt;/code> resolves a symbol name to a contract ID using the CQG API. This is a crucial step before subscribing to market data or requesting historical data.  It also populates the &lt;code>ContractMetadata&lt;/code> field of the &lt;code>CQGClient&lt;/code> with information about the contract.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>symbolName&lt;/code>: The symbol name to resolve (string) (e.g., &amp;ldquo;NQZ2&amp;rdquo;).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>msgID&lt;/code>: A unique message ID for the request (uint32).  This is used to correlate requests and responses.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>subscribe&lt;/code>: A boolean indicating whether to subscribe to market data for the symbol after resolution.  Note: this does &lt;em>not&lt;/em> actually subscribe to the data; it only sets a flag within the request.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>uint32&lt;/code>: The contract ID if the symbol is successfully resolved.  This is the ID used in subsequent API calls.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>error&lt;/code>: An error if any issue occurred during the symbol resolution process. This could include:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>    *   An empty symbol name.&lt;/p>
+&lt;p>    *   Serialization errors.&lt;/p>
+&lt;p>    *   WebSocket write/read errors.&lt;/p>
+&lt;p>    *   Failure to find contract metadata in the response (meaning the symbol couldn&amp;rsquo;t be resolved).&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">ResolveSymbol&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;NQZ2&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#66d9ef">true&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Symbol resolution failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Resolved contract ID: %d\n&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">contractID&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="resolveaccount-function">ResolveAccount Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">ResolveAccount&lt;/span>(&lt;span style="color:#a6e22e">msgID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>) (&lt;span style="color:#66d9ef">interface&lt;/span>{}, &lt;span style="color:#66d9ef">error&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>ResolveAccount&lt;/code> retrieves account information from the CQG API.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>msgID&lt;/code>: A unique message ID for the request (uint32).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>interface{}&lt;/code>: The raw server message containing account information.  This is a protobuf message, typically &lt;code>*pb.ServerMsg&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>error&lt;/code>: An error if any issue occurred during the account resolution process.  This could include serialization errors or WebSocket write/read errors.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">accountInfo&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">ResolveAccount&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Failed to resolve account: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">serverMsg&lt;/span>, &lt;span style="color:#a6e22e">ok&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">accountInfo&lt;/span>.(&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">pb&lt;/span>.&lt;span style="color:#a6e22e">ServerMsg&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> !&lt;span style="color:#a6e22e">ok&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Unexpected response type: %T&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">accountInfo&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">//  Process the ServerMsg to extract the needed data.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="subscribemarketdata-function">SubscribeMarketData Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">SubscribeMarketData&lt;/span>(&lt;span style="color:#a6e22e">contractID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">msgID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">level&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>) &lt;span style="color:#66d9ef">error&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>SubscribeMarketData&lt;/code> subscribes to market data for a specific contract ID at a given level.  After calling this function, the &lt;code>HandleMessages&lt;/code> function will start receiving market data updates for the subscribed contract.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>contractID&lt;/code>: The ID of the contract to subscribe to (uint32).  This is the ID obtained from &lt;code>ResolveSymbol&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>msgID&lt;/code>: A unique message ID for the request (uint32).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>level&lt;/code>: The level of market data to subscribe to (uint32).  Common values include:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>    *   &lt;code>0&lt;/code>: Best bid and ask.&lt;/p>
+&lt;p>    *   &lt;code>1&lt;/code>: Level 1 data.&lt;/p>
+&lt;p>    *   Higher levels may be supported depending on your CQG API subscription.  Consult the CQG API documentation for details.&lt;/p>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>error&lt;/code>: An error if any issue occurred during the subscription process. This could include:&lt;/li>
+&lt;/ul>
+&lt;p>    *   An invalid contract ID.&lt;/p>
+&lt;p>    *   Serialization errors.&lt;/p>
+&lt;p>    *   WebSocket write errors.&lt;/p>
+&lt;p>    *   Insufficient permissions (if your account doesn&amp;rsquo;t have access to the requested data).&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">SubscribeMarketData&lt;/span>(&lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Market data subscription failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="requestbartime-function">RequestBarTime Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">RequestBarTime&lt;/span>(&lt;span style="color:#a6e22e">msgID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">contractID&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">barUnit&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>, &lt;span style="color:#a6e22e">timeRange&lt;/span> &lt;span style="color:#a6e22e">models&lt;/span>.&lt;span style="color:#a6e22e">TimeRange&lt;/span>, &lt;span style="color:#a6e22e">requestType&lt;/span> &lt;span style="color:#66d9ef">uint32&lt;/span>) &lt;span style="color:#66d9ef">error&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>RequestBarTime&lt;/code> requests historical time bar data from the CQG API. This function allows you to retrieve historical price and volume data for a given contract over a specified time range.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>msgID&lt;/code>: A unique message ID for the request (uint32).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>contractID&lt;/code>: The ID of the contract to request data for (uint32).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>barUnit&lt;/code>: The time unit for the bars (uint32). Use constants from the &lt;code>models&lt;/code> package:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>    *   &lt;code>models.DailyIndex&lt;/code>: Daily bars.&lt;/p>
+&lt;p>    *   &lt;code>models.HourlyIndex&lt;/code>: Hourly bars.&lt;/p>
+&lt;p>    *   &lt;code>models.MinutelyIndex&lt;/code>: Minutely bars.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>timeRange&lt;/code>: The time range for the data request (&lt;code>models.TimeRange&lt;/code>).  This struct specifies the period and the number of periods to retrieve.  See the &lt;code>models&lt;/code> package documentation for details.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>requestType&lt;/code>: The type of request (uint32).  This is typically set to &lt;code>1&lt;/code> for a standard historical data request.  Consult the CQG API documentation for other options.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>error&lt;/code>: An error if any issue occurred during the data request process. This could include:&lt;/li>
+&lt;/ul>
+&lt;p>    *   An invalid contract ID.&lt;/p>
+&lt;p>    *   An invalid time range.&lt;/p>
+&lt;p>    *   Serialization errors.&lt;/p>
+&lt;p>    *   WebSocket write errors.&lt;/p>
+&lt;p>    *   Data unavailable for the requested symbol or time range.&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">timeRange&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">models&lt;/span>.&lt;span style="color:#a6e22e">TimeRange&lt;/span>{&lt;span style="color:#a6e22e">Period&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;day&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">Number&lt;/span>: &lt;span style="color:#ae81ff">10&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">RequestBarTime&lt;/span>(&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#a6e22e">models&lt;/span>.&lt;span style="color:#a6e22e">DailyIndex&lt;/span>, &lt;span style="color:#a6e22e">timeRange&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Historical data request failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="handlemessages-function">HandleMessages Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">HandleMessages&lt;/span>(&lt;span style="color:#a6e22e">handler&lt;/span> &lt;span style="color:#66d9ef">func&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">pb&lt;/span>.&lt;span style="color:#a6e22e">ServerMsg&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>HandleMessages&lt;/code> continuously reads messages from the WebSocket connection and passes them to a handler function for processing. This function is the core of receiving real-time updates and responses from the CQG API. It runs in a separate goroutine to avoid blocking the main thread.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>handler&lt;/code>: A function that takes a pointer to a &lt;code>*pb.ServerMsg&lt;/code> (from &lt;code>go-websocket/proto/WebAPI&lt;/code>) and processes it. The handler function is responsible for:&lt;/li>
+&lt;/ul>
+&lt;p>    *   Inspecting the &lt;code>ServerMsg&lt;/code> to determine its type.&lt;/p>
+&lt;p>    *   Extracting the relevant data from the message.&lt;/p>
+&lt;p>    *   Performing any necessary actions based on the data (e.g., updating a UI, storing data in a database, etc.).&lt;/p>
+&lt;p>    If &lt;code>handler&lt;/code> is &lt;code>nil&lt;/code>, it will only log the error and return. This is not recommended for production code, as it will drop all incoming messages.&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">go&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">HandleMessages&lt;/span>(&lt;span style="color:#66d9ef">func&lt;/span>(&lt;span style="color:#a6e22e">serverMsg&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">pb&lt;/span>.&lt;span style="color:#a6e22e">ServerMsg&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">rtData&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">serverMsg&lt;/span>.&lt;span style="color:#a6e22e">GetRealTimeMarketData&lt;/span>(); &lt;span style="color:#a6e22e">rtData&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#75715e">// Process real-time market data
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>        &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Received Realtime Market Data: %v\n&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">rtData&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">timeBarReports&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">serverMsg&lt;/span>.&lt;span style="color:#a6e22e">GetTimeBarReports&lt;/span>(); len(&lt;span style="color:#a6e22e">timeBarReports&lt;/span>) &amp;gt; &lt;span style="color:#ae81ff">0&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#75715e">//Process time bar data
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>        &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Received Time Bar Report: %v\n&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">timeBarReports&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#75715e">// Handle other message types
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>        &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Received other server message: %v\n&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">serverMsg&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>})
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Important Notes:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  This function runs in a separate goroutine, so it does not block the main thread.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  The handler function should be designed to be thread-safe, as it will be called concurrently by the &lt;code>HandleMessages&lt;/code> goroutine.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  It is crucial to handle all possible message types in the handler function to ensure that your application responds correctly to all events from the CQG API.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> Implement error handling in your handler function&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="prettyprintproto-function">PrettyPrintProto Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">PrettyPrintProto&lt;/span>(&lt;span style="color:#a6e22e">msg&lt;/span> &lt;span style="color:#a6e22e">proto&lt;/span>.&lt;span style="color:#a6e22e">Message&lt;/span>) &lt;span style="color:#66d9ef">string&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>PrettyPrintProto&lt;/code> formats a protobuf message into a human-readable string, useful for debugging and logging.&lt;/p>
+&lt;p>&lt;strong>Parameters:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>msg&lt;/code>: The protobuf message to format (&lt;code>proto.Message&lt;/code> from &lt;code>google.golang.org/protobuf/proto&lt;/code>).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Returns:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>  &lt;code>string&lt;/code>: A string representation of the protobuf message.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Received message:\n%s&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">PrettyPrintProto&lt;/span>(&lt;span style="color:#a6e22e">serverMsg&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="close-function">Close Function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">CQGClient&lt;/span>) &lt;span style="color:#a6e22e">Close&lt;/span>()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Close&lt;/code> closes the WebSocket connection. This should be called when the client is no longer needed to release resources. It&amp;rsquo;s crucial to call this function to avoid resource leaks and ensure proper connection termination.&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Close&lt;/span>()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="data-flow">Data Flow&lt;/h2>
+&lt;p>A typical interaction with the CQG API using this client follows this flow:&lt;/p>
+&lt;ol start="6">
+&lt;li>
+&lt;p> &lt;strong>Establish Connection:&lt;/strong> Create a &lt;code>CQGClient&lt;/code> using &lt;code>NewCQGClient()&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Authenticate:&lt;/strong> Log on to the CQG API using &lt;code>Logon()&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Resolve Symbol:&lt;/strong> Resolve the desired symbol to its contract ID using &lt;code>ResolveSymbol()&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Subscribe to Market Data (Optional):&lt;/strong> Subscribe to market data for the resolved contract using &lt;code>SubscribeMarketData()&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Request Historical Data (Optional):&lt;/strong> Request historical data using &lt;code>RequestBarTime()&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Process Messages:&lt;/strong> Start the message handling loop by calling &lt;code>HandleMessages()&lt;/code> in a separate goroutine. This function continuously reads messages from the WebSocket connection and passes them to a handler function for processing.  The handler function is responsible for extracting data from the messages and performing the necessary actions.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p> &lt;strong>Clean Up:&lt;/strong> When finished, call &lt;code>Close()&lt;/code> to close the WebSocket connection and release resources.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="error-handling">Error Handling&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package provides comprehensive error handling. Each function returns an &lt;code>error&lt;/code> value to indicate whether the operation was successful. You should always check the &lt;code>error&lt;/code> value and handle it appropriately. Common error scenarios include:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;strong>Network Errors:&lt;/strong> Problems with the WebSocket connection (e.g., connection refused, connection timeout, broken pipe).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;strong>Authentication Failures:&lt;/strong> Invalid username or password.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;strong>Serialization Errors:&lt;/strong> Problems encoding or decoding protobuf messages.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;strong>API Errors:&lt;/strong> Errors returned by the CQG API (e.g., invalid symbol, insufficient permissions).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Always log errors and take appropriate actions, such as retrying the operation or displaying an error message to the user.&lt;/p>
+&lt;h2 id="environment-variables">Environment Variables&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package relies on the following environment variables for configuration:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>USERNAME&lt;/code>: The username for your CQG API account.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>PASSWORD&lt;/code>: The password for your CQG API account.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>CLIENT_APP_ID&lt;/code>: The client application ID provided by CQG.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>CLIENT_VERSION&lt;/code>: The version of your client application.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>PROTOCOL_VERSION_MAJOR&lt;/code>: The major version of the CQG API protocol.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>PROTOCOL_VERSION_MINOR&lt;/code>: The minor version of the CQG API protocol.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>CQG_API_URL&lt;/code>:  [Optional - if not set, defaults to the hardcoded URL in client.go] The URL of the CQG WebSocket API endpoint.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>These environment variables should be set before running your application.  It is recommended to use a &lt;code>.env&lt;/code> file and the &lt;code>godotenv&lt;/code> package to manage these variables.&lt;/p>
+&lt;h2 id="dependencies">Dependencies&lt;/h2>
+&lt;p>The &lt;code>client&lt;/code> package has the following dependencies:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>  &lt;code>github.com/gofiber/websocket/v2&lt;/code>: For WebSocket communication.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>google.golang.org/protobuf/proto&lt;/code>: For working with Protocol Buffers (protobuf).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>google.golang.org/protobuf/encoding/protojson&lt;/code>: For converting between protobuf messages and JSON.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>log&lt;/code>: For logging messages.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>os&lt;/code>: For accessing environment variables.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>strconv&lt;/code>: For converting strings to numbers.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>fmt&lt;/code>: For formatted output.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>  &lt;code>go-websocket/proto/WebAPI&lt;/code>: The generated Go code from the CQG API&amp;rsquo;s Protocol Buffer definitions (defining the structure of messages).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="example-code">Example Code&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;go-websocket/internal/client&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;go-websocket/internal/models&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;log&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;os&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;strconv&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#e6db74">&amp;#34;google.golang.org/protobuf/proto&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Load environment variables (if not already loaded)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#75715e">// ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#75715e">// Create a new CQG client
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">cqgClient&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">client&lt;/span>.&lt;span style="color:#a6e22e">NewCQGClient&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Failed to create CQG client: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">defer&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Close&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Retrieve login credentials and protocol version from environment variables
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">userName&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;USERNAME&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">password&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;PASSWORD&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">clientAppId&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;CLIENT_APP_ID&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">clientVersion&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;CLIENT_VERSION&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">protocolVersionMajor&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;PROTOCOL_VERSION_MAJOR&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">protocolVersionMinor&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;PROTOCOL_VERSION_MINOR&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">protocolMajor&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">strconv&lt;/span>.&lt;span style="color:#a6e22e">ParseUint&lt;/span>(&lt;span style="color:#a6e22e">protocolVersionMajor&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">32&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Errorf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;invalid PROTOCOL_VERSION_MAJOR: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">protocolMinor&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">strconv&lt;/span>.&lt;span style="color:#a6e22e">ParseUint&lt;/span>(&lt;span style="color:#a6e22e">protocolVersionMinor&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">32&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Errorf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;invalid PROTOCOL_VERSION_MINOR: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Log on to the CQG API
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">err&lt;/span> = &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">Logon&lt;/span>(&lt;span style="color:#a6e22e">userName&lt;/span>, &lt;span style="color:#a6e22e">password&lt;/span>, &lt;span style="color:#a6e22e">clientAppId&lt;/span>, &lt;span style="color:#a6e22e">clientVersion&lt;/span>, uint32(&lt;span style="color:#a6e22e">protocolMajor&lt;/span>), uint32(&lt;span style="color:#a6e22e">protocolMinor&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Logon failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Resolve a symbol
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">symbolName&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;NQZ2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">msgID&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> uint32(&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">ResolveSymbol&lt;/span>(&lt;span style="color:#a6e22e">symbolName&lt;/span>, &lt;span style="color:#a6e22e">msgID&lt;/span>, &lt;span style="color:#66d9ef">false&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Symbol resolution failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Subscribe to market data (optional)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">err&lt;/span> = &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">SubscribeMarketData&lt;/span>(&lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Market data subscription failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Request historical data (optional)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#a6e22e">timeRange&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">models&lt;/span>.&lt;span style="color:#a6e22e">TimeRange&lt;/span>{&lt;span style="color:#a6e22e">Period&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;day&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">Number&lt;/span>: &lt;span style="color:#ae81ff">10&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#a6e22e">err&lt;/span> = &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">RequestBarTime&lt;/span>(&lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#a6e22e">contractID&lt;/span>, &lt;span style="color:#a6e22e">models&lt;/span>.&lt;span style="color:#a6e22e">DailyIndex&lt;/span>, &lt;span style="color:#a6e22e">timeRange&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Historical data request failed: %v&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#66d9ef">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Handle incoming messages in a separate goroutine
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#66d9ef">go&lt;/span> &lt;span style="color:#a6e22e">cqgClient&lt;/span>.&lt;span style="color:#a6e22e">HandleMessages&lt;/span>(&lt;span style="color:#66d9ef">func&lt;/span>(&lt;span style="color:#a6e22e">serverMsg&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">pb&lt;/span>.&lt;span style="color:#a6e22e">ServerMsg&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Received message:\n%s&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">client&lt;/span>.&lt;span style="color:#a6e22e">PrettyPrintProto&lt;/span>(&lt;span style="color:#a6e22e">serverMsg&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        &lt;span style="color:#75715e">//  Add data processing logic here.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#75715e">// Keep the application running to receive messages
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>    &lt;span style="color:#66d9ef">select&lt;/span> {} &lt;span style="color:#75715e">// Block indefinitely to keep the main goroutine alive.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>How to kill the process currently using a port on localhost in windows</title><link>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://dev-pradeep-ns.github.io/specwiseblog/posts/how-to-kill-the-process-currently-using-a-port-on-localhost-in-windows/</guid><description>&lt;h1 id="how-to-kill-a-process-using-a-specific-port-in-windows">How to Kill a Process Using a Specific Port in Windows&lt;/h1>
 &lt;p>Let&amp;rsquo;s say you&amp;rsquo;re trying to run a web server on port 8080, but you get an error saying the port is already in use. Here&amp;rsquo;s how you would troubleshoot:&lt;/p>
 &lt;h2 id="1-identify-the-process">1. Identify the Process&lt;/h2>
 &lt;ul>
